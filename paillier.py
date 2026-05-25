@@ -1,14 +1,3 @@
-"""Textbook Paillier cryptosystem with additive homomorphism.
-
-Keys are plain dicts:
-  pub  = {"n": n}
-  priv = {"n": n, "lam": lam, "mu": mu}
-
-Encrypt(m) = (n+1)^m * r^n  mod n^2
-Decrypt(c) = L(c^lambda mod n^2) * mu  mod n     where L(x) = (x-1)/n
-Add: c1 * c2  mod n^2   decrypts to  m1 + m2  mod n
-"""
-
 import random
 from math import gcd
 
@@ -40,11 +29,8 @@ def rand_coprime(n):
 
 
 def encrypt(pub, m, r=None):
-    """Returns (ciphertext, r). The randomness r is the voter's receipt."""
     n = pub["n"]
     n2 = n * n
-    if not (0 <= m < n):
-        raise ValueError("plaintext out of range")
     if r is None:
         r = rand_coprime(n)
     g = n + 1

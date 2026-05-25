@@ -1,8 +1,3 @@
-"""Voter: holds an RSA keypair and a CA-issued certificate, casts an encrypted ballot.
-
-Ballot is a plain dict: {"cert", "ciphertext", "voter_sig"}.
-"""
-
 import paillier
 import rsa_sig
 

@@ -1,10 +1,3 @@
-"""Minimal RSA signing used for voter keys and CA-issued certificates.
-
-Keys are plain dicts:
-  pub  = {"n": n, "e": e}
-  priv = {"n": n, "e": e, "d": d}
-"""
-
 import hashlib
 
 from primes import gen_prime, modinv

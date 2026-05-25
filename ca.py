@@ -1,8 +1,3 @@
-"""Certificate Authority: issues signed certificates binding a voter id to a public key.
-
-Certificate is a plain dict: {"voter_id", "voter_pub", "ca_sig"}.
-"""
-
 import rsa_sig
 
 

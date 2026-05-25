@@ -1,5 +1,3 @@
-"""Election authority: holds the Paillier keypair, accepts ballots, tallies homomorphically."""
-
 import paillier
 import rsa_sig
 from voter import ballot_payload

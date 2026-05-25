@@ -1,5 +1,3 @@
-"""Prime generation and modular utilities used by both Paillier and RSA."""
-
 import random
 from math import gcd
 
