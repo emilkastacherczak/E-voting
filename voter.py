@@ -11,7 +11,7 @@ class Voter:
         self.voter_id = voter_id
         self.pub, self.priv = rsa_sig.keygen(bits)
         self.cert = ca.issue(voter_id, self.pub)
-        self.receipt = None  # (vote, r) saved on first cast
+        self.receipt = None  # (vote, r)
 
     def cast(self, election_pub, vote):
         ciphertext, r = paillier.encrypt(election_pub, vote)
@@ -22,7 +22,6 @@ class Voter:
         return ballot
 
     def verify_recorded(self, election_pub, stored_ciphertext):
-        """Re-encrypt with saved randomness and compare to the ballot box's record."""
         if self.receipt is None:
             return False
         vote, r = self.receipt
